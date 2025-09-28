@@ -1,0 +1,33 @@
+spring:
+  application:
+    name: plexsalud
+  datasource:
+    url: jdbc:postgresql://${POSTGRES_HOST}:${POSTGRES_PORT}/${POSTGRES_DB}
+    username: ${POSTGRES_USER}
+    password: ${POSTGRES_PASSWORD}
+    driver-class-name: org.postgresql.Driver
+
+  servlet:
+    multipart:
+      max-file-size: ${MAX_FILE_SIZE}
+      max-request-size: ${MAX_REQUEST_SIZE}
+
+  jpa:
+    hibernate:
+      ddl-auto: update # update || none cambiar a none en produccion
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+    open-in-view: false
+
+app:
+  cors:
+    allowed-origin: ${ALLOWED_ORIGIN}
+
+security:
+  jwt:
+    secret-key: ${JWT_SECRET_KEY}
+    expiration-time: ${JWT_EXPIRATION_TIME}
+    refresh-expiration-time: ${JWT_REFRESH_EXPIRATION_TIME}
+
+# path de swagger /swagger-ui/index.html
