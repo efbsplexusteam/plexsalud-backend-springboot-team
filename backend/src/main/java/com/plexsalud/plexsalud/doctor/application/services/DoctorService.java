@@ -6,6 +6,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import com.plexsalud.plexsalud.doctor.application.dtos.DoctorDto;
+import com.plexsalud.plexsalud.doctor.application.dtos.DoctorFullNameAndIdAndSpecialtyDto;
 import com.plexsalud.plexsalud.doctor.application.dtos.DoctorFullNameAndIdDto;
 import com.plexsalud.plexsalud.doctor.application.reponses.DoctorResponse;
 import com.plexsalud.plexsalud.doctor.domain.entities.Doctor;
@@ -45,6 +46,12 @@ public class DoctorService {
 
     public List<DoctorFullNameAndIdDto> findAllDoctorsBySpecialty(String specialty) {
         List<DoctorFullNameAndIdDto> doctors = doctorRepository.findAllDoctorsBySpecialty(specialty);
+
+        return doctors;
+    }
+
+    public List<DoctorFullNameAndIdAndSpecialtyDto> findAllDoctors() {
+        List<DoctorFullNameAndIdAndSpecialtyDto> doctors = doctorRepository.findAllDoctors();
 
         return doctors;
     }
