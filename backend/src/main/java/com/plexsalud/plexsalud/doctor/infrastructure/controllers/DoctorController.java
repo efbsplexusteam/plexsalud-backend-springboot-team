@@ -13,6 +13,7 @@ import com.plexsalud.plexsalud.auth.responses.LoginResponse;
 import com.plexsalud.plexsalud.auth.services.AuthenticationService;
 import com.plexsalud.plexsalud.auth.services.JwtService;
 import com.plexsalud.plexsalud.doctor.application.dtos.DoctorDto;
+import com.plexsalud.plexsalud.doctor.application.dtos.DoctorFullNameAndIdAndSpecialtyDto;
 import com.plexsalud.plexsalud.doctor.application.dtos.DoctorFullNameAndIdDto;
 import com.plexsalud.plexsalud.doctor.application.reponses.DoctorResponse;
 import com.plexsalud.plexsalud.doctor.application.services.DoctorService;
@@ -75,6 +76,15 @@ public class DoctorController {
     @Operation(summary = "Get doctors by specialty", description = "This endpoint retrieves a list of doctors based on the specialty provided.")
     public List<DoctorFullNameAndIdDto> findAllDoctorsBySpecialty(String specialty) {
         List<DoctorFullNameAndIdDto> doctors = doctorService.findAllDoctorsBySpecialty(specialty);
+
+        return doctors;
+    }
+
+    @SecurityRequirement(name = "bearerAuth")
+    @GetMapping
+    @Operation(summary = "Get doctors by specialty", description = "This endpoint retrieves a list of doctors based on the specialty provided.")
+    public List<DoctorFullNameAndIdAndSpecialtyDto> findAllDoctors() {
+        List<DoctorFullNameAndIdAndSpecialtyDto> doctors = doctorService.findAllDoctors();
 
         return doctors;
     }

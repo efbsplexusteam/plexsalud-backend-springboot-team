@@ -5,6 +5,7 @@ import java.util.Optional;
 
 import org.springframework.stereotype.Repository;
 
+import com.plexsalud.plexsalud.doctor.application.dtos.DoctorFullNameAndIdAndSpecialtyDto;
 import com.plexsalud.plexsalud.doctor.application.dtos.DoctorFullNameAndIdDto;
 import com.plexsalud.plexsalud.doctor.domain.entities.Doctor;
 
@@ -20,4 +21,7 @@ public interface DoctorRepository extends CrudRepository<Doctor, Long> {
 
     @Query("SELECT d.fullName, d.id FROM Doctor d WHERE d.specialty = :specialty")
     List<DoctorFullNameAndIdDto> findAllDoctorsBySpecialty(String specialty);
+
+    @Query("SELECT d.fullName, d.id, d.specialty FROM Doctor d")
+    List<DoctorFullNameAndIdAndSpecialtyDto> findAllDoctors();
 }
