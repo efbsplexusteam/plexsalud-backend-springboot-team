@@ -5,7 +5,7 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
-import com.plexsalud.plexsalud.doctor.repositories.DoctorRepository;
+import com.plexsalud.plexsalud.doctor.infrastructure.repositories.DoctorRepository;
 
 @Service("doctorUserDetailsService")
 public class DoctorUserDetailsService implements UserDetailsService {

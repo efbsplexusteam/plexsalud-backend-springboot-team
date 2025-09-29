@@ -16,8 +16,8 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Service;
 
-import com.plexsalud.plexsalud.doctor.entities.Doctor;
-import com.plexsalud.plexsalud.patient.entities.Patient;
+import com.plexsalud.plexsalud.doctor.domain.entities.Doctor;
+import com.plexsalud.plexsalud.patient.domain.entities.Patient;
 
 @Service
 public class JwtService {

@@ -15,8 +15,8 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
-import com.plexsalud.plexsalud.doctor.repositories.DoctorRepository;
-import com.plexsalud.plexsalud.patient.repositories.PatientRepository;
+import com.plexsalud.plexsalud.doctor.infrastructure.repositories.DoctorRepository;
+import com.plexsalud.plexsalud.patient.infrastructure.repositories.PatientRepository;
 
 @Configuration
 public class ApplicationConfiguration {

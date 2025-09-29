@@ -6,10 +6,10 @@ import org.springframework.security.authentication.UsernamePasswordAuthenticatio
 import org.springframework.stereotype.Service;
 
 import com.plexsalud.plexsalud.auth.dtos.LoginDto;
-import com.plexsalud.plexsalud.doctor.entities.Doctor;
-import com.plexsalud.plexsalud.doctor.repositories.DoctorRepository;
-import com.plexsalud.plexsalud.patient.entities.Patient;
-import com.plexsalud.plexsalud.patient.repositories.PatientRepository;
+import com.plexsalud.plexsalud.doctor.domain.entities.Doctor;
+import com.plexsalud.plexsalud.doctor.infrastructure.repositories.DoctorRepository;
+import com.plexsalud.plexsalud.patient.domain.entities.Patient;
+import com.plexsalud.plexsalud.patient.infrastructure.repositories.PatientRepository;
 
 @Service
 public class AuthenticationService {
