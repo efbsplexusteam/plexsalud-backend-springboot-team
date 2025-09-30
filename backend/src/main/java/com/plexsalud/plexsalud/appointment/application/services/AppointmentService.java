@@ -40,7 +40,7 @@ public class AppointmentService {
             Appointment appointmentSaved = appointmentRepository.save(appointment);
 
             return new AppointmentResponse(appointmentSaved.getId(), appointmentSaved.getDate(),
-                    appointmentSaved.getStatus());
+                    appointmentSaved.getStatus(), "");
         } catch (Exception e) {
             throw new RuntimeException("Error creating appointment", e);
         }
@@ -70,7 +70,7 @@ public class AppointmentService {
             }
 
             return new AppointmentResponse(appointment.get().getId(), appointment.get().getDate(),
-                    appointment.get().getStatus());
+                    appointment.get().getStatus(), "");
         } catch (Exception e) {
             throw (e);
         }
@@ -88,7 +88,7 @@ public class AppointmentService {
             }
 
             return new AppointmentResponse(appointment.get().getId(), appointment.get().getDate(),
-                    appointment.get().getStatus());
+                    appointment.get().getStatus(), "");
         } catch (Exception e) {
             throw e;
         }
