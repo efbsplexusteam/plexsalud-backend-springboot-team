@@ -8,6 +8,8 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.plexsalud.plexsalud.appointment.application.dtos.AppointmentDto;
 import com.plexsalud.plexsalud.appointment.application.reponses.AppointmentResponse;
+import com.plexsalud.plexsalud.appointment.application.reponses.DoctorAppointmentResponse;
+import com.plexsalud.plexsalud.appointment.application.reponses.PatientAppointmentResponse;
 import com.plexsalud.plexsalud.appointment.domain.entities.Appointment;
 import com.plexsalud.plexsalud.appointment.infrastructure.repositories.AppointmentRepository;
 import com.plexsalud.plexsalud.doctor.domain.entities.Doctor;
@@ -46,13 +48,13 @@ public class AppointmentService {
         }
     }
 
-    public List<AppointmentResponse> getAllAppointmentsByPatient(Long patientId) {
+    public List<PatientAppointmentResponse> getAllAppointmentsByPatient(Long patientId) {
         Patient patient = new Patient();
         patient.setId(patientId);
         return appointmentRepository.findAllAppointmentsByPatient(patient);
     }
 
-    public List<AppointmentResponse> getAllAppointmentsByDoctor(Long doctorId) {
+    public List<DoctorAppointmentResponse> getAllAppointmentsByDoctor(Long doctorId) {
         Doctor doctor = new Doctor();
         doctor.setId(doctorId);
         return appointmentRepository.findAllAppointmentsByDoctor(doctor);
