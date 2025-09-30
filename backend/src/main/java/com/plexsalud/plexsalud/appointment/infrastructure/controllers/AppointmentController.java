@@ -13,6 +13,8 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.plexsalud.plexsalud.appointment.application.dtos.AppointmentDto;
 import com.plexsalud.plexsalud.appointment.application.reponses.AppointmentResponse;
+import com.plexsalud.plexsalud.appointment.application.reponses.DoctorAppointmentResponse;
+import com.plexsalud.plexsalud.appointment.application.reponses.PatientAppointmentResponse;
 import com.plexsalud.plexsalud.appointment.application.services.AppointmentService;
 import com.plexsalud.plexsalud.auth.services.JwtService;
 
@@ -36,14 +38,14 @@ public class AppointmentController {
 
     @Operation(summary = "Get all appointments for a patient", description = "This endpoint retrieves all appointments associated with a patient, based on their patient ID.")
     @GetMapping("patient")
-    public List<AppointmentResponse> getAllAppointmentsByDoctorSearchByPatient(HttpServletRequest request) {
+    public List<PatientAppointmentResponse> getAllAppointmentsByDoctorSearchByPatient(HttpServletRequest request) {
         Long id = jwtService.extractId(request);
         return appointmentService.getAllAppointmentsByPatient(id);
     }
 
     @Operation(summary = "Get all appointments for a doctor", description = "This endpoint retrieves all appointments associated with a doctor, based on their doctor ID.")
     @GetMapping("doctor")
-    public List<AppointmentResponse> getAllAppointmentsByDoctor(HttpServletRequest request) {
+    public List<DoctorAppointmentResponse> getAllAppointmentsByDoctor(HttpServletRequest request) {
         Long id = jwtService.extractId(request);
         return appointmentService.getAllAppointmentsByDoctor(id);
     }
